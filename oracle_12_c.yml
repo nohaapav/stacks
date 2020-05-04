@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  db:
+    image: quay.io/maksymbilenko/oracle-12c:latest
+    ports:
+     - 1521:1521
+     - 9090:8080
+    volumes:
+     - db-data:/u01/app/oracle
+    networks:
+     - default
+    logging:
+      driver: json-file
+
+networks:
+  default:
+    driver: overlay
+
+volumes:
+  db-data:
+    driver: local
