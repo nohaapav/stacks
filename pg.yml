@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+     - 5432:5432
+    networks:
+     - default
+    logging:
+      driver: json-file
+
+networks:
+  default:
+    driver: overlay
